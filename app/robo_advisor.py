@@ -10,7 +10,7 @@ import requests
 
 load_dotenv() #> loads contents of the .env file into the script's environment
 
-API_KEY = os.environ.get("ALPHAVANTAGE_API_KEY", "demo") # default to using the "demo" key if an Env Var is not supplied
+API_KEY = os.environ.get("ALPHAVANTAGE_API_KEY") # default to using the "demo" key if an Env Var is not supplied
 
 def get_response(symbol):
     request_url = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={symbol}&apikey={API_KEY}"
@@ -91,7 +91,7 @@ if __name__ == "__main__":
 
     formatted_time_now = time_now.strftime("%Y-%m-%d %H:%M:%S") #> '2019-03-03 14:45:27'
 
-    formatted_csv_filepath = csv_filepath.split("../")[1] #> data/prices.csv
+    formatted_csv_filepath = csv_filepath.split("..")[1] #> data/prices.csv
 
     print("-------------------------")
     print(f"SYMBOL: {symbol}")
